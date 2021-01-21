@@ -1,7 +1,7 @@
 package MorseCode
 
 class MorseAlphabet {
-    private var alphabet = mapOf(
+    private val alphabet = mapOf(
         " " to "/",
         "A" to ".-",
         "B" to "-...",
@@ -45,6 +45,6 @@ class MorseAlphabet {
     )
 
     fun convertToMorse(alpha: String): String {
-        return alphabet.getOrDefault(alpha, "")
+        return alphabet.getOrDefault(alpha.toUpperCase(), "")
     }
 }

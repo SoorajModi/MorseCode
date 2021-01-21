@@ -4,13 +4,14 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MorseAlphabetTest {
+    private val morse = MorseAlphabet()
+
     @Test
     fun testEncodeAlpha() {
-        val morse = MorseAlphabet()
-
         assertEquals(morse.convertToMorse("invalid"), "", "should return empty string if invalid key")
 
         assertEquals(morse.convertToMorse(" "), "/", "should convert space to morse code equivalent")
+
         assertEquals(morse.convertToMorse("A"), ".-", "should convert A to morse code equivalent")
         assertEquals(morse.convertToMorse("B"), "-...", "should convert B to morse code equivalent")
         assertEquals(morse.convertToMorse("C"), "-.-.", "should convert C to morse code equivalent")
@@ -37,6 +38,7 @@ class MorseAlphabetTest {
         assertEquals(morse.convertToMorse("X"), "-..-", "should convert X to morse code equivalent")
         assertEquals(morse.convertToMorse("Y"), "-.--", "should convert Y to morse code equivalent")
         assertEquals(morse.convertToMorse("Z"), "--..", "should convert Z to morse code equivalent")
+
         assertEquals(morse.convertToMorse("1"), ".----", "should convert 1 to morse code equivalent")
         assertEquals(morse.convertToMorse("2"), "..---", "should convert 2 to morse code equivalent")
         assertEquals(morse.convertToMorse("3"), "...--", "should convert 3 to morse code equivalent")
@@ -47,6 +49,7 @@ class MorseAlphabetTest {
         assertEquals(morse.convertToMorse("8"), "---..", "should convert 8 to morse code equivalent")
         assertEquals(morse.convertToMorse("9"), "----.", "should convert 9 to morse code equivalent")
         assertEquals(morse.convertToMorse("0"), "-----", "should convert 0 to morse code equivalent")
+
         assertEquals(morse.convertToMorse("."), ".-.-.-", "should convert . to morse code equivalent")
         assertEquals(morse.convertToMorse(","), "--..--", "should convert , to morse code equivalent")
         assertEquals(morse.convertToMorse("?"), "..--..", "should convert ? to morse code equivalent")
