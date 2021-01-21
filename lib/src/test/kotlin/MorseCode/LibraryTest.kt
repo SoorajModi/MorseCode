@@ -4,11 +4,16 @@
 package MorseCode
 
 import kotlin.test.Test
-import kotlin.test.assertTrue
+import kotlin.test.assertEquals
 
 class LibraryTest {
-    @Test fun testSomeLibraryMethod() {
-        val classUnderTest = Library()
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'")
+    @Test
+    fun testEncode() {
+        val lib = Library()
+
+        assertEquals(".-", lib.encoder("A"),  "should encode character in Morse Code")
+        assertEquals("- . ... -", lib.encoder("TEST"),  "should encode string in Morse Code")
+        assertEquals("- . ... -", lib.encoder("test"),  "should encode lowercase string in Morse Code")
+        assertEquals(".... . .-.. .-.. --- / .-- --- .-. .-.. -..", lib.encoder("HELLO WORLD"),  "should encode string in Morse Code")
     }
 }

@@ -4,7 +4,14 @@
 package MorseCode
 
 class Library {
-    fun someLibraryMethod(): Boolean {
-        return true
+    fun encoder(input: String): String {
+        val alphabet = MorseAlphabet()
+        var str = ""
+
+        input.forEach {
+            str += alphabet.convertToMorse(it.toString().toUpperCase()) + " "
+        }
+
+        return str.trim()
     }
 }
