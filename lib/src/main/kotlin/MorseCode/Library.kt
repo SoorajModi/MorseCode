@@ -4,17 +4,27 @@
 package MorseCode
 
 class Library {
-    private val alphabet = MorseAlphabet()
+    private val morseAlphabet = Morse()
+    private val alphabet = Alphabet()
 
     fun encoder(input: String): String {
         var str = ""
 
         input.forEach {
-            str += alphabet.convertToMorse(it.toString()) + " "
+            str += morseAlphabet.convertToMorse(it.toString()) + " "
         }
 
         return str.trim()
     }
 
+    fun decode(input: String): String {
+        var str = ""
+        val toDecode = input.split(" ")
 
+        toDecode.forEach {
+            str += alphabet.convertToAlphabet(it)
+        }
+
+        return str
+    }
 }

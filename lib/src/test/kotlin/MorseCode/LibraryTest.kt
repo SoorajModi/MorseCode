@@ -11,13 +11,34 @@ class LibraryTest {
 
     @Test
     fun testEncode() {
-        assertEquals(".-", lib.encoder("A"), "should encode character in Morse Code")
-        assertEquals("- . ... -", lib.encoder("TEST"), "should encode string in Morse Code")
-        assertEquals("- . ... -", lib.encoder("test"), "should encode lowercase string in Morse Code")
+        assertEquals(".-", lib.encoder("A"), "should encode character to Morse Code")
+        assertEquals("- . ... -", lib.encoder("TEST"), "should encode string to Morse Code")
+        assertEquals("- . ... -", lib.encoder("test"), "should encode lowercase string to Morse Code")
         assertEquals(
             ".... . .-.. .-.. --- / .-- --- .-. .-.. -..",
             lib.encoder("HELLO WORLD"),
-            "should encode string in Morse Code"
+            "should encode multi-word string to Morse Code"
+        )
+        assertEquals(
+            ".... . .-.. .-.. --- / .-- --- .-. .-.. -.. .-.-.-",
+            lib.encoder("HELLO WORLD."),
+            "should encode punctuated string to Morse Code"
+        )
+    }
+
+    @Test
+    fun testDecode() {
+        assertEquals("A", lib.decode(".-"), "should decode single morse code character to alphabet")
+        assertEquals("TEST", lib.decode("- . ... -"), "should decode morse code string to alphabet")
+        assertEquals(
+            "HELLO WORLD",
+            lib.decode(".... . .-.. .-.. --- / .-- --- .-. .-.. -.."),
+            "should decode multi word morse code string to alphabet"
+        )
+        assertEquals(
+            "HELLO WORLD.",
+            lib.decode(".... . .-.. .-.. --- / .-- --- .-. .-.. -.. .-.-.-"),
+            "should decode morse code string with punctuation to alphabet"
         )
     }
 }

@@ -39,6 +39,9 @@ dependencies {
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
+
+    // Bimap to hold Morse Alphabet
+    implementation("io.michaelrocks:bimap:1.0.2")
 }
 
 java {
